@@ -7,7 +7,7 @@ import (
 
 func Parse(input string) ParsedInput {
 	payload := strings.Split(strings.SplitAfter(input, "REQUEST:")[1], "{'source")[0]
-	details := strings.Trim(strings.SplitAfter(input, "REQUEST DETAILS:")[1], "\n\t")
+	details := ParseDetails(strings.SplitAfter(input, "REQUEST DETAILS:")[1])
 	return ParsedInput{payload, details}
 }
 
@@ -19,7 +19,7 @@ func ParseDetails(details string) ParsedDetails {
 
 type ParsedInput struct {
 	Payload string
-	Details string
+	Details ParsedDetails
 }
 
 type Headers struct {

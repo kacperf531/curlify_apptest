@@ -2,6 +2,7 @@ package curlify_apptest
 
 import (
 	"encoding/json"
+	"fmt"
 	"strings"
 )
 
@@ -32,4 +33,12 @@ type Headers struct {
 	UserAgent     string `json:"User-Agent"`
 	ContentType   string `json:"Content-Type"`
 	Authorization string `json:"Authorization"`
+}
+
+func Curlify(pi ParsedInput) string {
+	return fmt.Sprintf(`curl --location --request %s '%s' \
+		--header 'Authorization: %s' \
+		--header 'Content-Type: %s' \
+		--header 'User-Agent: %s' \
+		--data '%s'`, pi.Details.Method, pi.Details.URL, pi.Details.Headers.Authorization, pi.Details.Headers.ContentType, pi.Details.Headers.UserAgent, pi.Payload)
 }

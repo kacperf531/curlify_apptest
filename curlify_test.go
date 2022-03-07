@@ -1,4 +1,4 @@
-package curlify_apptest
+package main
 
 import "testing"
 

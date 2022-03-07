@@ -22,14 +22,14 @@ type ParsedInput struct {
 	Details ParsedDetails
 }
 
-type Headers struct {
-	UserAgent     string `json:"User-Agent"`
-	ContentType   string `json:"Content-Type"`
-	Authorization string `json:"Authorization"`
-}
-
 type ParsedDetails struct {
 	Method  string  `json:"method"`
 	URL     string  `json:"url"`
 	Headers Headers `json:"headers"`
+}
+
+type Headers struct {
+	UserAgent     string `json:"User-Agent"`
+	ContentType   string `json:"Content-Type"`
+	Authorization string `json:"Authorization"`
 }
